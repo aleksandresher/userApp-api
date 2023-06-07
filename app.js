@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const DATABASE_URL = "";
 
 const usersRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
