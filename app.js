@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const DATABASE_URL = "mongodb+srv://aleksandreshervashidze2:aleksandre-011@cluster0.e2wh7go.mongodb.net/?retryWrites=true&w=majority";
+const DATABASE_URL =
+  "mongodb+srv://aleksandreshervashidze2:aleksandre-011@cluster0.e2wh7go.mongodb.net/?retryWrites=true&w=majority";
 
 const usersRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
@@ -39,9 +40,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect(
-   DATABASE_URL
-  )
+  .connect(DATABASE_URL)
   .then((result) => {
     app.listen(8080);
     console.log("server is running");
