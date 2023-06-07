@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const DATABASE_URL = "mongodb+srv://aleksandreshervashidze2:aleksandre-011@cluster0.e2wh7go.mongodb.net/?retryWrites=true&w=majority";
 
 const usersRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
@@ -39,7 +40,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://aleksandreshervashidze2:aleksandre-011@cluster0.e2wh7go.mongodb.net/Users?retryWrites=true&w=majority"
+   DATABASE_URL
   )
   .then((result) => {
     app.listen(8080);
