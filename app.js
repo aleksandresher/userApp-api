@@ -38,10 +38,25 @@ app.use((error, req, res, next) => {
   res.json({ message: message, data: data });
 });
 
+// mongoose
+//   .connect(process.env.DATABASE_URL)
+//   .then((result) => {
+//     app.listen(8080);
+//     console.log("server is running");
+//   })
+//   .catch((err) => console.log(err));
+
 mongoose
-  .connect(process.env.DATABASE_URL)
+  .connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    user: process.env.DATABASE_USERNAME,
+    pass: process.env.DATABASE_PASSWORD,
+    authSource: "admin",
+  })
   .then((result) => {
     app.listen(8080);
-    console.log("server is running");
+    console.log("Server is running");
   })
   .catch((err) => console.log(err));
