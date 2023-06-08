@@ -26,7 +26,7 @@ app.use("/", authRoutes);
 mongoose
   .connect(process.env.DATABASE_URL)
   .then((result) => {
-    app.listen(process.env.DATABASE_URL);
+    app.listen(8080);
     console.log("server is running");
   })
   .catch((err) => console.log(err));
