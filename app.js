@@ -18,10 +18,24 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
 });
-///sds
 
 app.use("/users", usersRoutes);
 app.use("/", authRoutes);
+
+app.use((error, req, res, next) => {
+  console.log(error);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  res.json({ message: message, data: data });
+});
 
 mongoose
   .connect(process.env.DATABASE_URL)
