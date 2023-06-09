@@ -5,7 +5,7 @@ const usersController = require("../controllers/users");
 
 const router = express.Router();
 
-router.get("/getUsers", usersController.getUsers);
+router.get("/users", usersController.getUsers);
 router.get("/getUsers/:userId", usersController.getSingleUser);
 router.delete("/getUsers/:userId", usersController.deleteUser);
 router.put("/getUsers/:userId", usersController.updateUser);
