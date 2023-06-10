@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use((req, res, next) => {
+app.use((req, res, next, error) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -17,12 +17,12 @@ app.use((req, res, next) => {
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-  if (error) {
+ 
     const status = error.statusCode || 500;
     const message = error.message;
     const data = error.data;
-    return res.json({ message: message, data: data });
-  }
+     res.json({ message: message, data: data });
+  
 
   next();
 });
