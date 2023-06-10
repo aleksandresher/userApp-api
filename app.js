@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://user-test-app.onrender.com");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "OPTIONS, GET, POST, PUT, PATCH, DELETE"
@@ -24,7 +24,7 @@ app.use("/users", usersRoutes);
 app.use("/", authRoutes);
 
 app.use((error, req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://user-test-app.onrender.com");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "OPTIONS, GET, POST, PUT, PATCH, DELETE"
