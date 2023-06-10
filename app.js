@@ -12,7 +12,7 @@ app.use(cors());
 app.use("/users", usersRoutes);
 app.use("/", authRoutes);
 
-app.use((req, res, next, error) => {
+app.use((erorr, req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -27,7 +27,7 @@ app.use((req, res, next, error) => {
      res.json({ message: message, data: data });
   
 
-  next();
+  next(error);
 });
 
 
