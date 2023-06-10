@@ -9,6 +9,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use("/users", usersRoutes);
+app.use("/", authRoutes);
+
 app.use((req, res, next, error) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -27,8 +30,7 @@ app.use((req, res, next, error) => {
   next();
 });
 
-app.use("/users", usersRoutes);
-app.use("/", authRoutes);
+
 
 // mongoose
 //   .connect(process.env.DATABASE_URL)
