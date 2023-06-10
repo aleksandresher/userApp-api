@@ -48,9 +48,6 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(process.env.DATABASE_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
     user: process.env.DATABASE_USERNAME,
     pass: process.env.DATABASE_PASSWORD,
     authSource: "admin",
